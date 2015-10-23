@@ -1,0 +1,23 @@
+@echo off
+rem -----------------------------------------
+rem   Batch file to launch STORESCP Program
+rem     for STORESCP version 3.5 onwards
+rem -----------------------------------------
+cls
+
+rem Three variables listed below are used in this file
+rem	port = TCP/IP port number (104 commonly used)
+rem	imagedir = destination directory for DICOM images
+rem	progdir = directory containing STORESCP.EXE Program
+rem Modify these variables if necessary
+set port=104
+set imagedir=c:\DICOM_NEW\localStorage
+set progdir=c:\DICOM_NEW\bin
+
+
+rem print message showing port number
+echo Waiting for data on port %port%!
+rem change directory to image destination
+cd %imagedir%
+rem call STORESCP.EXE to wait for DICOM images
+%progdir%\storescp -v %port%
